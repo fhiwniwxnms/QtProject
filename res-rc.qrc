@@ -1,0 +1,22 @@
+<RCC>
+  <qresource prefix="icons">
+    <file>icons/Add cart.svg</file>
+    <file>icons/Add.svg</file>
+    <file>icons/Attach money.svg</file>
+    <file>icons/Calendar.svg</file>
+    <file>icons/Cash.svg</file>
+    <file>icons/Category name.svg</file>
+    <file>icons/Decrease.svg</file>
+    <file>icons/Delete.svg</file>
+    <file>icons/Description.svg</file>
+    <file>icons/Edit.svg</file>
+    <file>icons/Increase.svg</file>
+    <file>icons/Medicine.svg</file>
+    <file>icons/New folder.svg</file>
+    <file>icons/Package.svg</file>
+    <file>icons/Rubble.svg</file>
+    <file>icons/Shopping cart.svg</file>
+    <file>icons/Spa.svg</file>
+    <file>icons/Undo.svg</file>
+  </qresource>
+</RCC>
