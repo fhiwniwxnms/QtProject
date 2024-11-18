@@ -148,9 +148,9 @@ class ExpenceTracker(QMainWindow, Ui_MainWindow):
         balance = self.ui_window.sum_edit.text()
         status = self.ui_window.increase_decrease.currentText()
         # Получаем нужные нам данные (дата, категория, описание, сумму и статус)
-        if status == 'Income':
+        if status == 'Доход':
             self.conn.add_new_transaction_request(date, category, description, balance, status)
-        else:
+        elif status == 'Расход':
             self.conn.add_new_transaction_request(date, category, description, '-' + balance, status)
         # Передали в метод, отвечающий за добавление новых данных в бд
         self.view_data()
