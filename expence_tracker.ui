@@ -109,7 +109,7 @@ padding-top: 10px
 </string>
              </property>
              <property name="text">
-              <string>Доход</string>
+              <string>Доходы</string>
              </property>
             </widget>
            </item>
@@ -166,7 +166,7 @@ padding-top: 10px
 </string>
              </property>
              <property name="text">
-              <string>Расход</string>
+              <string>Расходы</string>
              </property>
             </widget>
            </item>
@@ -195,7 +195,13 @@ border: none;
 border: 1px solid rgba(255, 255, 255, 80);
 border-radius: 7px</string>
         </property>
-        <layout class="QVBoxLayout" name="verticalLayout_2">
+        <property name="frameShape">
+         <enum>QFrame::Shape::NoFrame</enum>
+        </property>
+        <property name="frameShadow">
+         <enum>QFrame::Shadow::Raised</enum>
+        </property>
+        <layout class="QVBoxLayout" name="verticalLayout_20">
          <property name="spacing">
           <number>0</number>
          </property>
@@ -213,13 +219,18 @@ border-radius: 7px</string>
          </property>
          <item>
           <widget class="QLabel" name="categories_label">
+           <property name="font">
+            <font>
+             <family>Cambria Math</family>
+             <pointsize>20</pointsize>
+             <bold>true</bold>
+            </font>
+           </property>
            <property name="styleSheet">
             <string notr="true">font-weight: bold;
 font-size: 20pt;
 background-color: none;
-border: none;
-padding-bottom: 10px 
-</string>
+border: none;</string>
            </property>
            <property name="text">
             <string>Категории трат</string>
@@ -227,88 +238,318 @@ padding-bottom: 10px
           </widget>
          </item>
          <item>
-          <layout class="QVBoxLayout" name="categories">
+          <layout class="QHBoxLayout" name="groceries">
            <item>
-            <layout class="QHBoxLayout" name="categories_buttons">
-             <item>
-              <widget class="QPushButton" name="category_add">
-               <property name="styleSheet">
-                <string notr="true">margin-bottom: 10px;
-margin-right: 5px </string>
-               </property>
-               <property name="text">
-                <string>Добавить категорию</string>
-               </property>
-               <property name="icon">
-                <iconset resource="res-rc.qrc">
-                 <normaloff>:/icons/icons/New folder.svg</normaloff>:/icons/icons/New folder.svg</iconset>
-               </property>
-              </widget>
-             </item>
-             <item>
-              <widget class="QPushButton" name="category_delete">
-               <property name="enabled">
-                <bool>true</bool>
-               </property>
-               <property name="sizePolicy">
-                <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
-                 <horstretch>0</horstretch>
-                 <verstretch>0</verstretch>
-                </sizepolicy>
-               </property>
-               <property name="maximumSize">
-                <size>
-                 <width>246</width>
-                 <height>16777215</height>
-                </size>
-               </property>
-               <property name="styleSheet">
-                <string notr="true">margin-bottom: 10px;
-margin-left: 5px </string>
-               </property>
-               <property name="text">
-                <string>Удалить категорию</string>
-               </property>
-               <property name="icon">
-                <iconset resource="res-rc.qrc">
-                 <normaloff>:/icons/icons/Undo.svg</normaloff>:/icons/icons/Undo.svg</iconset>
-               </property>
-              </widget>
-             </item>
-            </layout>
-           </item>
-           <item>
-            <widget class="QTableView" name="categories_table">
+            <widget class="QLabel" name="groceries_icon">
              <property name="sizePolicy">
               <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
                <horstretch>0</horstretch>
                <verstretch>0</verstretch>
               </sizepolicy>
              </property>
+             <property name="maximumSize">
+              <size>
+               <width>24</width>
+               <height>16777215</height>
+              </size>
+             </property>
+             <property name="font">
+              <font>
+               <family>Cambria Math</family>
+               <pointsize>14</pointsize>
+               <bold>true</bold>
+              </font>
+             </property>
              <property name="styleSheet">
-              <string notr="true">QTableView {
-background-color: rgba(255, 255, 255, 30);
-border: 1px solid rgba(255, 255, 255, 40);
-border-bottom-right-radius: 7px;
-border-bottom-left-radius: 7px;
-}
-
-QTableView:section {
-background-color: rgba(53, 53, 53);
-border: none;
-height: 50px;
-font-size: 14pt
-}
-
-QTableView:item {
-border-style: none;
-border-bottom: rgba(255, 255, 255, 50);
-}
-
-QTableView:item:selected {
-border: none;
-background-color: rgba(255, 255, 255, 50);
-}</string>
+              <string notr="true">color: white;
+font-weight: bold;
+font-size: 14pt;
+background-color: none;
+border: none;</string>
+             </property>
+             <property name="text">
+              <string/>
+             </property>
+             <property name="pixmap">
+              <pixmap resource="res-rc.qrc">:/icons/icons/Shopping cart.svg</pixmap>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="groceries_label">
+             <property name="font">
+              <font>
+               <family>Cambria Math</family>
+               <pointsize>14</pointsize>
+               <bold>true</bold>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">font-weight: bold;
+font-size: 14pt;
+background-color: none;
+border: none;</string>
+             </property>
+             <property name="text">
+              <string>Продукты</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="groceries_sum">
+             <property name="font">
+              <font>
+               <family>Cambria Math</family>
+               <pointsize>16</pointsize>
+               <italic>false</italic>
+               <bold>false</bold>
+               <kerning>true</kerning>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">font-size: 16pt;
+background-color: none;
+border: none;</string>
+             </property>
+             <property name="lineWidth">
+              <number>0</number>
+             </property>
+             <property name="text">
+              <string>{sum}</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </item>
+         <item>
+          <layout class="QHBoxLayout" name="entertainment">
+           <item>
+            <widget class="QLabel" name="entertainment_icon">
+             <property name="maximumSize">
+              <size>
+               <width>24</width>
+               <height>16777215</height>
+              </size>
+             </property>
+             <property name="font">
+              <font>
+               <family>Cambria Math</family>
+               <pointsize>14</pointsize>
+               <bold>true</bold>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">color: white;
+font-weight: bold;
+font-size: 14pt;
+background-color: none;
+border: none;</string>
+             </property>
+             <property name="text">
+              <string/>
+             </property>
+             <property name="pixmap">
+              <pixmap resource="res-rc.qrc">:/icons/icons/Spa.svg</pixmap>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="entertainment_label">
+             <property name="font">
+              <font>
+               <family>Cambria Math</family>
+               <pointsize>14</pointsize>
+               <bold>true</bold>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">font-weight: bold;
+font-size: 14pt;
+background-color: none;
+border: none;</string>
+             </property>
+             <property name="text">
+              <string>Развлечения</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="entertainment_sum">
+             <property name="font">
+              <font>
+               <family>Cambria Math</family>
+               <pointsize>16</pointsize>
+               <italic>false</italic>
+               <bold>false</bold>
+               <kerning>true</kerning>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">font-size: 16pt;
+background-color: none;
+border: none;</string>
+             </property>
+             <property name="lineWidth">
+              <number>0</number>
+             </property>
+             <property name="text">
+              <string>{sum}</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </item>
+         <item>
+          <layout class="QHBoxLayout" name="pharmacy">
+           <item>
+            <widget class="QLabel" name="pharmacy_icon">
+             <property name="maximumSize">
+              <size>
+               <width>24</width>
+               <height>16777215</height>
+              </size>
+             </property>
+             <property name="font">
+              <font>
+               <family>Cambria Math</family>
+               <pointsize>14</pointsize>
+               <bold>true</bold>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">color: white;
+font-weight: bold;
+font-size: 14pt;
+background-color: none;
+border: none;</string>
+             </property>
+             <property name="text">
+              <string/>
+             </property>
+             <property name="pixmap">
+              <pixmap resource="res-rc.qrc">:/icons/icons/Medicine.svg</pixmap>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="pharmacy_label">
+             <property name="font">
+              <font>
+               <family>Cambria Math</family>
+               <pointsize>14</pointsize>
+               <bold>true</bold>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">font-weight: bold;
+font-size: 14pt;
+background-color: none;
+border: none;</string>
+             </property>
+             <property name="text">
+              <string>Аптеки</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="pharmacy_sum">
+             <property name="font">
+              <font>
+               <family>Cambria Math</family>
+               <pointsize>16</pointsize>
+               <italic>false</italic>
+               <bold>false</bold>
+               <kerning>true</kerning>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">font-size: 16pt;
+background-color: none;
+border: none;</string>
+             </property>
+             <property name="lineWidth">
+              <number>0</number>
+             </property>
+             <property name="text">
+              <string>{sum}</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </item>
+         <item>
+          <layout class="QHBoxLayout" name="other">
+           <item>
+            <widget class="QLabel" name="other_icon">
+             <property name="maximumSize">
+              <size>
+               <width>24</width>
+               <height>16777215</height>
+              </size>
+             </property>
+             <property name="font">
+              <font>
+               <family>Cambria Math</family>
+               <pointsize>14</pointsize>
+               <bold>true</bold>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">color: white;
+font-weight: bold;
+font-size: 14pt;
+background-color: none;
+border: none;</string>
+             </property>
+             <property name="text">
+              <string/>
+             </property>
+             <property name="pixmap">
+              <pixmap resource="res-rc.qrc">:/icons/icons/Package.svg</pixmap>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="other_label">
+             <property name="font">
+              <font>
+               <family>Cambria Math</family>
+               <pointsize>14</pointsize>
+               <bold>true</bold>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">font-weight: bold;
+font-size: 14pt;
+background-color: none;
+border: none;</string>
+             </property>
+             <property name="text">
+              <string>Другое</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="other_sum">
+             <property name="font">
+              <font>
+               <family>Cambria Math</family>
+               <pointsize>16</pointsize>
+               <italic>false</italic>
+               <bold>false</bold>
+               <kerning>true</kerning>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">font-size: 16pt;
+background-color: none;
+border: none;</string>
+             </property>
+             <property name="lineWidth">
+              <number>0</number>
+             </property>
+             <property name="text">
+              <string>{sum}</string>
              </property>
             </widget>
            </item>
@@ -429,34 +670,39 @@ background-color: rgba(255, 255, 255, 70);
      </layout>
     </item>
     <item>
-     <widget class="QTableView" name="transactions_table">
+     <widget class="QTableWidget" name="transactions_table">
       <property name="sizePolicy">
        <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
         <horstretch>0</horstretch>
         <verstretch>0</verstretch>
        </sizepolicy>
       </property>
+      <property name="font">
+       <font>
+        <family>Cambria Math</family>
+        <pointsize>22</pointsize>
+       </font>
+      </property>
       <property name="styleSheet">
-       <string notr="true">QTableView {
+       <string notr="true">QTableWidget {
 background-color: rgba(255, 255, 255, 30);
 border: 1px solid rgba(255, 255, 255, 40);
 border-bottom-right-radius: 7px;
 border-bottom-left-radius: 7px;
 }
 
-QTableView:section {
+QTableWidget:section {
 background-color: rgba(53, 53, 53);
 border: none;
 height: 50px;
-font-size: 14pt
 }
 
-QTableView:item {
+QTableWidget:item {
 border-style: none;
 border-bottom: rgba(255, 255, 255, 50);
 }
 
-QTableView:item:selected {
+QTableWidget:item:selected {
 border: none;
 background-color: rgba(255, 255, 255, 50);
 }</string>
@@ -470,8 +716,8 @@ background-color: rgba(255, 255, 255, 50);
       <property name="showGrid">
        <bool>false</bool>
       </property>
-      <attribute name="horizontalHeaderDefaultSectionSize">
-       <number>135</number>
+      <attribute name="horizontalHeaderVisible">
+       <bool>true</bool>
       </attribute>
      </widget>
     </item>
