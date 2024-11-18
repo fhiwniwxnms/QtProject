@@ -93,12 +93,12 @@ selection-color:rgba(230, 230, 230) ;
     </property>
     <property name="dateTime">
      <datetime>
-      <hour>17</hour>
+      <hour>10</hour>
       <minute>0</minute>
       <second>0</second>
       <year>2024</year>
       <month>11</month>
-      <day>12</day>
+      <day>19</day>
      </datetime>
     </property>
     <property name="calendarPopup">
@@ -108,7 +108,7 @@ selection-color:rgba(230, 230, 230) ;
      <date>
       <year>2024</year>
       <month>11</month>
-      <day>12</day>
+      <day>19</day>
      </date>
     </property>
    </widget>
@@ -256,6 +256,26 @@ background-color: rgba(255, 255, 255, 100);
     <property name="placeholderText">
      <string>Название категории</string>
     </property>
+    <item>
+     <property name="text">
+      <string>Продукты</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Развлечения</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Аптеки</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Другое</string>
+     </property>
+    </item>
    </widget>
   </widget>
  </widget>
