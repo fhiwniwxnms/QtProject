@@ -50,7 +50,7 @@ class Ui_Dialog(object):
 "selection-background-color: rgb(129, 162, 199);\n"
 "selection-color:rgba(230, 230, 230) ;\n"
 "}")
-        self.date_choosing.setDateTime(QtCore.QDateTime(QtCore.QDate(2024, 11, 19), QtCore.QTime(10, 0, 0)))
+        self.date_choosing.setDateTime(QtCore.QDateTime(QtCore.QDate(2024, 11, 19), QtCore.QTime(3, 0, 0)))
         self.date_choosing.setCalendarPopup(True)
         self.date_choosing.setDate(QtCore.QDate(2024, 11, 19))
         self.date_choosing.setObjectName("date_choosing")
@@ -97,7 +97,7 @@ class Ui_Dialog(object):
 "background-color: rgba(255, 255, 255, 100);\n"
 "}")
         icon = QtGui.QIcon()
-        icon.addPixmap(QtGui.QPixmap(":/icons/icons/Add.svg"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
+        icon.addPixmap(QtGui.QPixmap("icons/Add.svg"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
         self.pushButton.setIcon(icon)
         self.pushButton.setIconSize(QtCore.QSize(24, 24))
         self.pushButton.setObjectName("pushButton")
@@ -106,6 +106,7 @@ class Ui_Dialog(object):
         self.choosing_category.setStyleSheet("font-size: 15pt")
         self.choosing_category.setCurrentText("")
         self.choosing_category.setObjectName("choosing_category")
+        self.choosing_category.addItem("")
         self.choosing_category.addItem("")
         self.choosing_category.addItem("")
         self.choosing_category.addItem("")
@@ -125,7 +126,8 @@ class Ui_Dialog(object):
         self.date_label.setText(_translate("Dialog", "Дата"))
         self.pushButton.setText(_translate("Dialog", "Сохранить"))
         self.choosing_category.setPlaceholderText(_translate("Dialog", "Название категории"))
-        self.choosing_category.setItemText(0, _translate("Dialog", "Продукты"))
-        self.choosing_category.setItemText(1, _translate("Dialog", "Развлечения"))
-        self.choosing_category.setItemText(2, _translate("Dialog", "Аптеки"))
-        self.choosing_category.setItemText(3, _translate("Dialog", "Другое"))
+        self.choosing_category.setItemText(0, _translate("Dialog", "Другое"))
+        self.choosing_category.setItemText(1, _translate("Dialog", "Продукты"))
+        self.choosing_category.setItemText(2, _translate("Dialog", "Развлечения"))
+        self.choosing_category.setItemText(3, _translate("Dialog", "Аптеки"))
+        self.choosing_category.setItemText(4, _translate("Dialog", "Зарплата"))
