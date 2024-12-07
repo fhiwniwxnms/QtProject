@@ -93,7 +93,7 @@ selection-color:rgba(230, 230, 230) ;
     </property>
     <property name="dateTime">
      <datetime>
-      <hour>10</hour>
+      <hour>3</hour>
       <minute>0</minute>
       <second>0</second>
       <year>2024</year>
@@ -228,7 +228,7 @@ background-color: rgba(255, 255, 255, 100);
      <string>Сохранить</string>
     </property>
     <property name="icon">
-     <iconset resource="res-new-trans-rc.qrc">
+     <iconset resource="res_rc.qrc">
       <normaloff>:/icons/icons/Add.svg</normaloff>:/icons/icons/Add.svg</iconset>
     </property>
     <property name="iconSize">
@@ -258,6 +258,11 @@ background-color: rgba(255, 255, 255, 100);
     </property>
     <item>
      <property name="text">
+      <string>Другое</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
       <string>Продукты</string>
      </property>
     </item>
@@ -273,14 +278,14 @@ background-color: rgba(255, 255, 255, 100);
     </item>
     <item>
      <property name="text">
-      <string>Другое</string>
+      <string>Зарплата</string>
      </property>
     </item>
    </widget>
   </widget>
  </widget>
  <resources>
-  <include location="res-new-trans-rc.qrc"/>
+  <include location="res_rc.qrc"/>
  </resources>
  <connections/>
 </ui>
