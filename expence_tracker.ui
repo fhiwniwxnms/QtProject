@@ -94,7 +94,7 @@ padding-top: 10px
               <string/>
              </property>
              <property name="pixmap">
-              <pixmap resource="res-rc.qrc">:/icons/icons/Increase.svg</pixmap>
+              <pixmap resource="res_rc.qrc">:/icons/icons/Increase.svg</pixmap>
              </property>
             </widget>
            </item>
@@ -151,7 +151,7 @@ padding-top: 10px
               <string/>
              </property>
              <property name="pixmap">
-              <pixmap resource="res-rc.qrc">:/icons/icons/Decrease.svg</pixmap>
+              <pixmap resource="res_rc.qrc">:/icons/icons/Decrease.svg</pixmap>
              </property>
             </widget>
            </item>
@@ -271,7 +271,7 @@ border: none;</string>
               <string/>
              </property>
              <property name="pixmap">
-              <pixmap resource="res-rc.qrc">:/icons/icons/Shopping cart.svg</pixmap>
+              <pixmap resource="res_rc.qrc">:/icons/icons/Shopping cart.svg</pixmap>
              </property>
             </widget>
            </item>
@@ -349,7 +349,7 @@ border: none;</string>
               <string/>
              </property>
              <property name="pixmap">
-              <pixmap resource="res-rc.qrc">:/icons/icons/Spa.svg</pixmap>
+              <pixmap resource="res_rc.qrc">:/icons/icons/Spa.svg</pixmap>
              </property>
             </widget>
            </item>
@@ -427,7 +427,7 @@ border: none;</string>
               <string/>
              </property>
              <property name="pixmap">
-              <pixmap resource="res-rc.qrc">:/icons/icons/Medicine.svg</pixmap>
+              <pixmap resource="res_rc.qrc">:/icons/icons/Medicine.svg</pixmap>
              </property>
             </widget>
            </item>
@@ -505,7 +505,7 @@ border: none;</string>
               <string/>
              </property>
              <property name="pixmap">
-              <pixmap resource="res-rc.qrc">:/icons/icons/Package.svg</pixmap>
+              <pixmap resource="res_rc.qrc">:/icons/icons/Package.svg</pixmap>
              </property>
             </widget>
            </item>
@@ -586,7 +586,7 @@ background-color: rgba(255, 255, 255, 70);
          <string>Добавить транзакцию</string>
         </property>
         <property name="icon">
-         <iconset resource="res-rc.qrc">
+         <iconset resource="res_rc.qrc">
           <normaloff>:/icons/icons/Add cart.svg</normaloff>:/icons/icons/Add cart.svg</iconset>
         </property>
         <property name="iconSize">
@@ -621,7 +621,7 @@ background-color: rgba(255, 255, 255, 70);
          <string>Редактировать транзакцию</string>
         </property>
         <property name="icon">
-         <iconset resource="res-rc.qrc">
+         <iconset resource="res_rc.qrc">
           <normaloff>:/icons/icons/Edit.svg</normaloff>:/icons/icons/Edit.svg</iconset>
         </property>
         <property name="iconSize">
@@ -656,7 +656,7 @@ background-color: rgba(255, 255, 255, 70);
          <string>Удалить транзакцию</string>
         </property>
         <property name="icon">
-         <iconset resource="res-rc.qrc">
+         <iconset resource="res_rc.qrc">
           <normaloff>:/icons/icons/Delete.svg</normaloff>:/icons/icons/Delete.svg</iconset>
         </property>
         <property name="iconSize">
@@ -677,11 +677,23 @@ background-color: rgba(255, 255, 255, 70);
         <verstretch>0</verstretch>
        </sizepolicy>
       </property>
+      <property name="minimumSize">
+       <size>
+        <width>1063</width>
+        <height>0</height>
+       </size>
+      </property>
       <property name="font">
        <font>
         <family>Cambria Math</family>
         <pointsize>22</pointsize>
        </font>
+      </property>
+      <property name="layoutDirection">
+       <enum>Qt::LayoutDirection::LeftToRight</enum>
+      </property>
+      <property name="autoFillBackground">
+       <bool>false</bool>
       </property>
       <property name="styleSheet">
        <string notr="true">QTableWidget {
@@ -707,25 +719,135 @@ border: none;
 background-color: rgba(255, 255, 255, 50);
 }</string>
       </property>
+      <property name="frameShape">
+       <enum>QFrame::Shape::StyledPanel</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Shadow::Sunken</enum>
+      </property>
       <property name="verticalScrollBarPolicy">
        <enum>Qt::ScrollBarPolicy::ScrollBarAlwaysOff</enum>
       </property>
       <property name="horizontalScrollBarPolicy">
        <enum>Qt::ScrollBarPolicy::ScrollBarAlwaysOff</enum>
       </property>
+      <property name="sizeAdjustPolicy">
+       <enum>QAbstractScrollArea::SizeAdjustPolicy::AdjustToContents</enum>
+      </property>
       <property name="showGrid">
        <bool>false</bool>
+      </property>
+      <property name="columnCount">
+       <number>6</number>
       </property>
       <attribute name="horizontalHeaderVisible">
        <bool>true</bool>
       </attribute>
+      <attribute name="horizontalHeaderCascadingSectionResizes">
+       <bool>false</bool>
+      </attribute>
+      <attribute name="horizontalHeaderMinimumSectionSize">
+       <number>43</number>
+      </attribute>
+      <attribute name="horizontalHeaderDefaultSectionSize">
+       <number>177</number>
+      </attribute>
+      <attribute name="horizontalHeaderHighlightSections">
+       <bool>true</bool>
+      </attribute>
+      <attribute name="horizontalHeaderShowSortIndicator" stdset="0">
+       <bool>false</bool>
+      </attribute>
+      <attribute name="horizontalHeaderStretchLastSection">
+       <bool>true</bool>
+      </attribute>
+      <attribute name="verticalHeaderCascadingSectionResizes">
+       <bool>false</bool>
+      </attribute>
+      <attribute name="verticalHeaderStretchLastSection">
+       <bool>false</bool>
+      </attribute>
+      <column>
+       <property name="text">
+        <string>ID</string>
+       </property>
+       <property name="font">
+        <font>
+         <family>Cambria Math</family>
+         <pointsize>10</pointsize>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="background">
+        <color alpha="0">
+         <red>111</red>
+         <green>135</green>
+         <blue>158</blue>
+        </color>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Дата</string>
+       </property>
+       <property name="font">
+        <font>
+         <family>Cambria Math</family>
+         <pointsize>10</pointsize>
+        </font>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Категория</string>
+       </property>
+       <property name="font">
+        <font>
+         <family>Cambria Math</family>
+         <pointsize>10</pointsize>
+        </font>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Описание</string>
+       </property>
+       <property name="font">
+        <font>
+         <family>Cambria Math</family>
+         <pointsize>10</pointsize>
+        </font>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Цена</string>
+       </property>
+       <property name="font">
+        <font>
+         <family>Cambria Math</family>
+         <pointsize>10</pointsize>
+        </font>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Статус</string>
+       </property>
+       <property name="font">
+        <font>
+         <family>Cambria Math</family>
+         <pointsize>10</pointsize>
+        </font>
+       </property>
+      </column>
      </widget>
     </item>
    </layout>
   </widget>
  </widget>
  <resources>
-  <include location="res-rc.qrc"/>
+  <include location="res_rc.qrc"/>
  </resources>
  <connections/>
 </ui>
