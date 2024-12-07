@@ -2,11 +2,12 @@ import sys
 import sqlite3
 
 from PySide6 import QtWidgets
-from PySide6.QtSql import QSqlDatabase, QSqlTableModel
 from PySide6.QtWidgets import QApplication, QMainWindow, QTableView, QTableWidgetItem
+# Подгрузка нужных библиотек
 
 from expence_tracker import Ui_MainWindow
 from new_transaction import Ui_Dialog
+# Подгрузка дизайна приложения
 
 
 class Data:
@@ -19,7 +20,8 @@ class Data:
         request = 'INSERT INTO expences (Date, Category, Description, Balance, Status) VALUES (?, ?, ?, ?, ?)'
         # Запрос на добавление в таблицу бд expences значений столбцов
         cursor.execute(request, [date, category, description, balance, status])  # Выполнение запроса
-        self.conn.commit()  # Фиксирование изменений бд
+        self.conn.commit()
+        # Фиксирование изменений бд
 
     def update_transaction_request(self, date, category, description, balance, status, id):
         cursor = self.conn.cursor()
@@ -50,7 +52,6 @@ class Data:
         # Исполняем запрос с параметрами и получаем результат
 
         resw = query.fetchone()
-        print(resw)
         if resw[0] is None:
             return '0' + '₽'
         if resw:  # Проверяем, есть ли результат для запроса
@@ -60,17 +61,17 @@ class Data:
         return '0'  # Если нет результата, возвращаем '0'
 
     def total_balance(self):
-        # Метод для получения общего баланса.
+        # Метод для получения общего баланса
         # Вызов метода get_total с указанием столбца 'Balance'
         return self.get_total(column='Balance')
 
     def total_income(self):
-        # Метод для получения общего дохода.
+        # Метод для получения общего дохода
         # Вызов метода get_total, фильтруя по статусу 'Доход' в столбце 'Status'
         return self.get_total(column='Balance', filter='Status', value='Доход')
 
     def total_outcome(self):
-        # Метод для получения общего расхода.
+        # Метод для получения общего расхода
         # Вызов метода get_total, фильтруя по статусу 'Outcome' в столбце 'Status'
         return self.get_total(column='Balance', filter='Status', value='Расход')
 
@@ -100,10 +101,13 @@ class ExpenceTracker(QMainWindow, Ui_MainWindow):
         super().__init__()
         self.setupUi(self)
         self.conn = Data()  # Подключение бд
+        self.reload_data()
+        self.view_data()
 
         self.transaction_add.clicked.connect(self.open_new_transaction_window)
         self.transaction_edit.clicked.connect(self.open_new_transaction_window)
         self.transaction_delete.clicked.connect(self.delete_current_transaction)
+        self.transactions_table.horizontalHeader().setStretchLastSection(True)
         # Подключенике методов к соответствующим кнопкам
 
     def reload_data(self):
@@ -117,7 +121,8 @@ class ExpenceTracker(QMainWindow, Ui_MainWindow):
         # Отображение сумм на главном экране
 
     def view_data(self):
-        res = self.conn.get_all_table()
+        res = self.conn.get_all_table()  # Получаем все данные из таблицы базы данных
+
         self.transactions_table.setColumnCount(6)
         self.transactions_table.setRowCount(0)
         for i, elem in enumerate(res):
@@ -126,13 +131,15 @@ class ExpenceTracker(QMainWindow, Ui_MainWindow):
             for j, item in enumerate(elem):
                 self.transactions_table.setItem(
                     i, j, QTableWidgetItem(str(item)))
+        [self.transactions_table.resizeColumnToContents(i) for i in range(self.transactions_table.columnCount() - 1)]
         # Заполняем таблицу элементами
 
     def open_new_transaction_window(self):
         self.new_transaction = QtWidgets.QDialog()
         self.ui_window = Ui_Dialog()
         self.ui_window.setupUi(self.new_transaction)
-        self.new_transaction.show()  # Открытие окна создания/редактирования транзакции
+        self.new_transaction.show()
+        # Открытие окна создания/редактирования транзакции
 
         if self.sender().text() == 'Добавить транзакцию':
             self.ui_window.pushButton.clicked.connect(self.add_new_transaction)
@@ -155,8 +162,9 @@ class ExpenceTracker(QMainWindow, Ui_MainWindow):
         # Передали в метод, отвечающий за добавление новых данных в бд
         self.view_data()
         self.reload_data()
+        # Запуск методов по отображению сумм на экране и загрузке данных таблицы
         self.new_transaction.close()
-        # Закрыли окно создания/редактирования транзакции
+        # Закрываем окно создания/редактирования транзакции
 
     def edit_current_transaction(self):
         index = self.transactions_table.selectedIndexes()[0]  # Получаем индекс выбранной транзакции в таблице
@@ -168,16 +176,18 @@ class ExpenceTracker(QMainWindow, Ui_MainWindow):
         balance = self.ui_window.sum_edit.text()
         status = self.ui_window.increase_decrease.currentText()
         # Получаем нужные нам данные (дата, категория, описание, сумму и статус)
-
-        self.conn.update_transaction_request(date, category, description, balance, status, id)
+        if status == 'Доход':
+            self.conn.update_transaction_request(date, category, description, balance, status, id)
+        elif status == 'Расход':
+            self.conn.update_transaction_request(date, category, description, '-' + balance, status, id)
         # Обновляем транзакцию в базе данных с использованием полученных данных
         self.view_data()
         self.reload_data()
         self.new_transaction.close()  # Закрываем окно создания/редактирования транзакции
 
     def delete_current_transaction(self):
-        index = self.transactions_table.selectedIndexes()[0]
-        id = str(self.transactions_table.model().data(index))
+        index = self.transactions_table.selectedIndexes()[0]  # Получаем индекс выбранной транзакции в таблице
+        id = str(self.transactions_table.model().data(index))  # Извлекаем ID транзакции на основе выбранного индекса
 
         self.conn.delete_transaction_request(id)  # Удаляем транзакцию из базы данных по её ID
         self.view_data()
